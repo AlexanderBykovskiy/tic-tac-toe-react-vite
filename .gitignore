@@ -1,14 +1,36 @@
-# Created by https://www.toptal.com/developers/gitignore/api/webstorm+all,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=webstorm+all,react
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Created by https://www.toptal.com/developers/gitignore/api/react,webstorm+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,webstorm+all
 
 ### react ###
 .DS_*
-*.log
-logs
 **/*.backup.*
 **/*.back.*
 
-node_modules
 bower_components
 
 *.sublime*
@@ -104,5 +126,3 @@ fabric.properties
 
 !.idea/codeStyles
 !.idea/runConfigurations
-
-# End of https://www.toptal.com/developers/gitignore/api/webstorm+all,react
