@@ -3,15 +3,14 @@ import {typeGameFieldProps} from "../types/types.ts";
 import {getGameFieldsBordersById} from "../utils/get-game-fields-borders-by-id.ts";
 
 
-const GameField: React.FC<typeGameFieldProps> = ({fieldValue, index}) => {
-    console.log(fieldValue);
+const GameField: React.FC<typeGameFieldProps> = ({fieldValue, index, onAddStep}) => {
 
     const borderStyles = getGameFieldsBordersById(index);
 
     return(
-        <button className={"w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] focus:outline-green-400 flex justify-center items-center p-2" + (borderStyles ? " " + borderStyles : "")}>
+        <button className={"w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] focus:outline-green-400 flex justify-center items-center p-2" + (borderStyles ? " " + borderStyles : "")} onClick={onAddStep}>
             {fieldValue === "x" &&
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-red-600" viewBox="0 0 24 24" strokeWidth="0.7" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-red-600" viewBox="0 0 24 24" strokeWidth="0.9" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M18 6l-12 12"></path>
                     <path d="M6 6l12 12"></path>
