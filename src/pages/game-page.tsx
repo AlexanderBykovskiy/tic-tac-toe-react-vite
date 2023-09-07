@@ -26,6 +26,7 @@ const GamePage = () => {
                     {/* Current state of game board it is the last element of history */}
                     <GameBoard
                         board={history[history.length - 1]}
+                        historyStepNumber={history.length - 1}
                         onAddStep={onAddStep}
                     />
                 </div>

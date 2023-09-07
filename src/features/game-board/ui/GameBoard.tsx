@@ -3,7 +3,7 @@ import {typeGameBoardProps} from "../types/types.ts";
 import GameField from "./GameField.tsx";
 
 
-const GameBoard: React.FC<typeGameBoardProps> = ({board, onAddStep}) => {
+const GameBoard: React.FC<typeGameBoardProps> = ({board, historyStepNumber, onAddStep}) => {
     return(
         <div className="relative">
             <div className="absolute l-0 h-full w-0">
@@ -28,6 +28,7 @@ const GameBoard: React.FC<typeGameBoardProps> = ({board, onAddStep}) => {
                         <GameField
                             key={index}
                             index={index}
+                            historyStepNumber={historyStepNumber}
                             fieldValue={item}
                             onAddStep={board[index] ? undefined : () => onAddStep(index)}
                         />
