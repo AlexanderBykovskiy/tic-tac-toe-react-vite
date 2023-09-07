@@ -1,3 +1,5 @@
+import Copyright from "../features/ui/copyright/copyright.tsx";
+
 function GamePage() {
 
   return (
@@ -8,6 +10,7 @@ function GamePage() {
         <div className="flex justify-center">
             the game history here
         </div>
+        <Copyright/>
     </div>
   )
 }
