@@ -1,14 +1,18 @@
 import Copyright from "../features/ui/copyright/copyright.tsx";
+import Score from "../features/ui/score/ui/score.tsx";
 
-function GamePage() {
+const GamePage = () => {
 
   return (
-    <div className="p-8 min-h-[100vh] bg-white flex flex-col justify-center gap-8">
-        <div className="flex justify-center">
-            the board here
-        </div>
-        <div className="flex justify-center">
-            the game history here
+    <div className="py-2 px-4 min-h-[100vh] bg-white flex flex-col gap-8">
+        <Score/>
+        <div className="flex-grow flex flex-col justify-center">
+            <div className="flex justify-center">
+                the board here
+            </div>
+            <div className="flex justify-center">
+                the game history here
+            </div>
         </div>
         <Copyright/>
     </div>
