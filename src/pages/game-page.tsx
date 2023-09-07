@@ -1,5 +1,5 @@
-import Copyright from "../features/ui/copyright/copyright.tsx";
-import Score from "../features/ui/score/ui/score.tsx";
+import Copyright from "../features/copyright/ui/copyright.tsx";
+import Score from "../features/score/ui/score.tsx";
 
 const GamePage = () => {
 

@@ -1,4 +1,4 @@
-import {getCurrentYear} from "../../utils/get-current-year.ts";
+import {getCurrentYear} from "../../../shared/utils/get-current-year.ts";
 
 const Copyright = () => {
 

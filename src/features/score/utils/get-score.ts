@@ -1,4 +1,4 @@
-import {typeScoreObj} from "./types.ts";
+import {typeScoreObj} from "../types/types.ts";
 
 export const getScore = (): typeScoreObj => {
     const currentXScore = sessionStorage.getItem("xScore");

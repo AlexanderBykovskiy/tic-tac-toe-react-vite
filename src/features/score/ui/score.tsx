@@ -10,8 +10,8 @@ const Score: React.FC = () => {
     // Declare the function of changing current score, saving it in Session Storage
     const onClearScore = () => {
         const newScoreObj = {xScore: 0, oScore: 0};
-        setScore(newScoreObj);
-        setCurrentScore(newScoreObj);
+        setScore(newScoreObj); // Set score in the Session Storage
+        setCurrentScore(newScoreObj); // Set score in the store
     }
 
     return(
