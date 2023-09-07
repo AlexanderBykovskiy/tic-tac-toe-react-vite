@@ -5,5 +5,6 @@ export type typeGameBoardProps = {
 }
 
 export type typeGameFieldProps = {
+    index: number
     fieldValue: typeGameFieldValue
 }

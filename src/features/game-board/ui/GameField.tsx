@@ -1,11 +1,15 @@
 import React from "react";
 import {typeGameFieldProps} from "../types/types.ts";
+import {getGameFieldsBordersById} from "../utils/get-game-fields-borders-by-id.ts";
 
 
-const GameField: React.FC<typeGameFieldProps> = ({fieldValue}) => {
+const GameField: React.FC<typeGameFieldProps> = ({fieldValue, index}) => {
     console.log(fieldValue);
+
+    const borderStyles = getGameFieldsBordersById(index);
+
     return(
-        <button className="w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] focus:outline-green-400 border flex justify-center items-center p-2">
+        <button className={"w-[20vw] h-[20vw] sm:w-[15vw] sm:h-[15vw] md:w-[10vw] md:h-[10vw] focus:outline-green-400 flex justify-center items-center p-2" + (borderStyles ? " " + borderStyles : "")}>
             {fieldValue === "x" &&
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-red-600" viewBox="0 0 24 24" strokeWidth="0.7" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
