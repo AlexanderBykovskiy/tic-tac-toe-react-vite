@@ -3,10 +3,12 @@ import Score from "../features/score/ui/score.tsx";
 import React, {useState} from "react";
 import {createEmptyBoard} from "../features/history/utils/create-empty-board.ts";
 import GameBoard from "../features/game-board/ui/GameBoard.tsx";
-import {historyStates, typeHistory} from "../shared/types/types.ts";
+import {historyStates, typeGameFieldValue, typeHistory} from "../shared/types/types.ts";
 import HistoryBoard from "../features/history/ui/history-board.tsx";
 import {createNewStepObject} from "../features/history/utils/create-new-step-object.ts";
 import {getLastStepFromHistory} from "../features/history/utils/get-last-step-from-history.ts";
+import {isWinner} from "../features/winner/utils/isWinner.ts";
+import Winner from "../features/winner/ui/winner.tsx";
 
 const GamePage: React.FC = () => {
 
@@ -21,9 +23,12 @@ const GamePage: React.FC = () => {
 
     const [history, setHistory] = useState<typeHistory>(initialHistory); // Create blank board and put to history
 
+    const [winner, setWinner] = useState<typeGameFieldValue>(null);
+
     // On new game step handler
     const onAddStep = (indexOfFieldOfNewStep: number, statusOfNewStep: historyStates) => {
         const newHistoryStep = createNewStepObject(getLastStepFromHistory(history), history.length - 1, indexOfFieldOfNewStep, statusOfNewStep);
+        setWinner(isWinner(newHistoryStep.board));
         const newHistory = Array.from(history);
         newHistory.push(newHistoryStep);
         setHistory(newHistory);
@@ -43,7 +48,10 @@ const GamePage: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <HistoryBoard history={history}/>
+                    {winner
+                        ? <Winner winner={winner}/>
+                        : <HistoryBoard history={history}/>
+                    }
                 </div>
             </div>
             <Copyright/>
