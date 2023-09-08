@@ -1,9 +1,10 @@
 import React from "react";
 import {typeGameBoardProps} from "../types/types.ts";
 import GameField from "./GameField.tsx";
+import {historyStates} from "../../../shared/types/types.ts";
 
 
-const GameBoard: React.FC<typeGameBoardProps> = ({board, historyStepNumber, onAddStep}) => {
+const GameBoard: React.FC<typeGameBoardProps> = ({lastStep, onAddStep}) => {
     return(
         <div className="relative">
             <div className="absolute l-0 h-full w-0">
@@ -23,14 +24,13 @@ const GameBoard: React.FC<typeGameBoardProps> = ({board, historyStepNumber, onAd
             </div>
 
             <div className="grid grid-cols-3">
-                {board.map((item, index) => {
+                {lastStep.board.map((item, index) => {
                     return(
                         <GameField
                             key={index}
                             index={index}
-                            historyStepNumber={historyStepNumber}
                             fieldValue={item}
-                            onAddStep={board[index] ? undefined : () => onAddStep(index)}
+                            onAddStep={lastStep.board[index] ? undefined : () => onAddStep(index, historyStates.inProcess)} // TODO: fix step state
                         />
                     )
                 })}

@@ -1,14 +1,12 @@
-import {typeGameBoard, typeGameFieldValue} from "../../../shared/types/types.ts";
+import {historyStates, typeGameFieldValue, typeHistoryItem} from "../../../shared/types/types.ts";
 
 export type typeGameBoardProps = {
-    board: typeGameBoard
-    historyStepNumber: number
-    onAddStep: (index: number) => void
+    lastStep: typeHistoryItem
+    onAddStep: (index: number, statusOfNewStep: historyStates) => void
 }
 
 export type typeGameFieldProps = {
     index: number
-    historyStepNumber: number
     fieldValue: typeGameFieldValue
     onAddStep?: () => void
 }
