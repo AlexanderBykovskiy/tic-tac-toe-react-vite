@@ -24,7 +24,6 @@ const GamePage: React.FC = () => {
     // On new game step handler
     const onAddStep = (indexOfFieldOfNewStep: number, statusOfNewStep: historyStates) => {
         const newHistoryStep = createNewStepObject(getLastStepFromHistory(history), history.length - 1, indexOfFieldOfNewStep, statusOfNewStep);
-        console.log('game-page', newHistoryStep)
         const newHistory = Array.from(history);
         newHistory.push(newHistoryStep);
         setHistory(newHistory);
