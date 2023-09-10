@@ -2,6 +2,7 @@ import {historyStates, typeGameFieldValue, typeHistoryItem} from "../../../share
 
 export type typeGameBoardProps = {
     lastStep: typeHistoryItem
+    winner: typeGameFieldValue
     onAddStep: (index: number, statusOfNewStep: historyStates) => void
 }
 

@@ -43,6 +43,7 @@ const GamePage: React.FC = () => {
                         {/* Current state of game board it is the last element of history */}
                         <GameBoard
                             lastStep={getLastStepFromHistory(history)}
+                            winner={winner}
                             onAddStep={onAddStep}
                         />
                     </div>

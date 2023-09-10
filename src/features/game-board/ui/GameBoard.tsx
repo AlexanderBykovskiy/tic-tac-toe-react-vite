@@ -4,7 +4,7 @@ import GameField from "./GameField.tsx";
 import {historyStates} from "../../../shared/types/types.ts";
 
 
-const GameBoard: React.FC<typeGameBoardProps> = ({lastStep, onAddStep}) => {
+const GameBoard: React.FC<typeGameBoardProps> = ({lastStep, winner, onAddStep}) => {
     return(
         <div className="relative">
             <div className="absolute l-0 h-full w-0">
@@ -30,7 +30,7 @@ const GameBoard: React.FC<typeGameBoardProps> = ({lastStep, onAddStep}) => {
                             key={index}
                             index={index}
                             fieldValue={item}
-                            onAddStep={lastStep.board[index] ? undefined : () => onAddStep(index, historyStates.inProcess)} // TODO: fix step state
+                            onAddStep={lastStep.board[index] || winner ? undefined : () => onAddStep(index, historyStates.inProcess)} // TODO: fix step state
                         />
                     )
                 })}
