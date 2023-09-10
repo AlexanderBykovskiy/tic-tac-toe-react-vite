@@ -4,6 +4,7 @@ const Copyright = () => {
 
     const startYear = '2023'; // Year from which the copyright date begins
     const copyrightName = 'Alexander Bykovskiy'; // The name displayed in the copyright block
+    const copyrightLink = 'https://github.com/AlexanderBykovskiy'; // The link to your github
 
     const currentYear = getCurrentYear(); // Get current year function
 
@@ -11,7 +12,7 @@ const Copyright = () => {
 
     return(
         <div className="text-right text-xs text-gray-300">
-            Copyright &copy; {yearData}. {copyrightName}
+            Copyright &copy; {yearData}. <a href={copyrightLink} target="_blank" className="hover:underline">{copyrightName}</a>
         </div>
     )
 }

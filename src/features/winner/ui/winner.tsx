@@ -2,7 +2,7 @@ import React from "react";
 import {typeWinnerProps} from "../types/types.ts";
 
 
-const Winner: React.FC<typeWinnerProps> = ({winner}) => {
+const Winner: React.FC<typeWinnerProps> = ({winner, onClearHistory}) => {
     return(
         <div className="flex items-center text-lg gap-2 border rounded border-green-600 text-white bg-green-600 px-4 py-2">
             {winner === 'x' &&
@@ -19,6 +19,7 @@ const Winner: React.FC<typeWinnerProps> = ({winner}) => {
                 </svg>
             }
             <span>is won this time! Congratulations.</span>
+            <button className="underline" onClick={onClearHistory}>Try again</button>
         </div>
     )
 }

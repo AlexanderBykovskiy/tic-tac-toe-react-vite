@@ -2,7 +2,7 @@ import React from "react";
 import {typeHistoryBoardProps} from "../types/types.ts";
 import Draw from "./draw.tsx";
 
-const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner}) => {
+const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner, onClearHistory}) => {
     return(
         <div className="flex items-center flex-wrap">
             {!winner && history.length !== 10
@@ -54,7 +54,7 @@ const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner}) => {
 
                     </React.Fragment>)
                 })
-                : <Draw/>
+                : <Draw onClearHistory={onClearHistory}/>
             }
         </div>
     )

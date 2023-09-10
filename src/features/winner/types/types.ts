@@ -1,5 +1,6 @@
 import {typeGameFieldValue} from "../../../shared/types/types.ts";
 
 export type typeWinnerProps = {
-    winner: typeGameFieldValue
+    winner: typeGameFieldValue,
+    onClearHistory: () => void,
 }

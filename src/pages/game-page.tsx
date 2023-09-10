@@ -34,6 +34,12 @@ const GamePage: React.FC = () => {
         setHistory(newHistory);
     }
 
+    // On clear history
+    const onClearHistory = () => {
+        setHistory(initialHistory);
+        setWinner(null);
+    }
+
     return (
         <div className="py-2 px-4 min-h-[100vh] bg-white flex flex-col gap-10">
             <Score/>
@@ -50,8 +56,8 @@ const GamePage: React.FC = () => {
                 </div>
                 <div className="flex justify-center">
                     {winner
-                        ? <Winner winner={winner}/>
-                        : <HistoryBoard history={history} winner={winner}/>
+                        ? <Winner winner={winner} onClearHistory={onClearHistory}/>
+                        : <HistoryBoard history={history} winner={winner} onClearHistory={onClearHistory}/>
                     }
                 </div>
             </div>
