@@ -1,6 +1,6 @@
 import {typeScoreObj} from "../types/types.ts";
 
-export const getScore = (): typeScoreObj => {
+export const getSessionScore = (): typeScoreObj => {
     const currentXScore = sessionStorage.getItem("xScore");
     const currentOScore = sessionStorage.getItem("oScore");
     return ({
