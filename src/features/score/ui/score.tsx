@@ -1,18 +1,7 @@
-import React, {useState} from "react";
-import {getScore} from "../utils/get-score.ts";
-import {setScore} from "../utils/set-score.ts";
+import React from "react";
+import {typeScoreProps} from "../types/types.ts";
 
-const Score: React.FC = () => {
-
-
-    const [currentScore, setCurrentScore] = useState(getScore()); // Declare a store for storing an score, receiving data from Session Storage
-
-    // Declare the function of changing current score, saving it in Session Storage
-    const onClearScore = () => {
-        const newScoreObj = {xScore: 0, oScore: 0};
-        setScore(newScoreObj); // Set score in the Session Storage
-        setCurrentScore(newScoreObj); // Set score in the store
-    }
+const Score: React.FC<typeScoreProps> = ({score, onClearScore}) => {
 
     return(
         <div className="relative flex justify-center gap-6 max-w-fit text-xl px-6 py-2 rounded border mx-auto group">
@@ -23,17 +12,17 @@ const Score: React.FC = () => {
                     <path d="M18 6l-12 12"></path>
                     <path d="M6 6l12 12"></path>
                 </svg>
-                <div>{currentScore.xScore}</div>
+                <div>{score.xScore}</div>
             </div>
             <div className="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
                 </svg>
-                <div>{currentScore.oScore}</div>
+                <div>{score.oScore}</div>
             </div>
             <div className="absolute right-0 top-0 w-0">
-                {(currentScore.xScore > 0 || currentScore.oScore > 0) &&
+                {(score.xScore > 0 || score.oScore > 0) &&
                     <div className="hidden group-hover:flex pl-1">
                         <button className="flex p-2 rounded bg-red-600 text-white shadow-sm" onClick={onClearScore}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
