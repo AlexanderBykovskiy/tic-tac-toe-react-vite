@@ -1,9 +1,11 @@
 import React from "react";
 import {typeWinnerProps} from "../types/types.ts";
+import Confetti from "react-confetti";
 
 
 const Winner: React.FC<typeWinnerProps> = ({winner, onClearHistory}) => {
-    return(
+    return(<>
+        <Confetti recycle={false}/>
         <div className="flex items-center text-lg gap-2 border rounded border-green-600 text-white bg-green-600 px-4 py-2">
             {winner === 'x' &&
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -21,7 +23,7 @@ const Winner: React.FC<typeWinnerProps> = ({winner, onClearHistory}) => {
             <span>is won this time! Congratulations.</span>
             <button className="underline" onClick={onClearHistory}>Try again</button>
         </div>
-    )
+    </>)
 }
 
 export default Winner;
