@@ -1,5 +1,6 @@
-import {typeHistory} from "../../../shared/types/types.ts";
+import {typeGameFieldValue, typeHistory} from "../../../shared/types/types.ts";
 
 export type typeHistoryBoardProps = {
-    history: typeHistory
+    history: typeHistory,
+    winner: typeGameFieldValue,
 }

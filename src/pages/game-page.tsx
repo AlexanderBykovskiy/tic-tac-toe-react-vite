@@ -50,7 +50,7 @@ const GamePage: React.FC = () => {
                 <div className="flex justify-center">
                     {winner
                         ? <Winner winner={winner}/>
-                        : <HistoryBoard history={history}/>
+                        : <HistoryBoard history={history} winner={winner}/>
                     }
                 </div>
             </div>
