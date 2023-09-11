@@ -31,6 +31,7 @@ const GameBoard: React.FC<typeGameBoardProps> = ({lastStep, winner, stepIndex, o
                             stepIndex={stepIndex}
                             index={index}
                             fieldValue={item}
+                            winner={winner}
                             onAddStep={lastStep.board[index] || winner ? undefined : () => onAddStep(index, historyStates.inProcess)} // TODO: fix step state
                         />
                     )

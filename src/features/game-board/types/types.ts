@@ -11,5 +11,6 @@ export type typeGameFieldProps = {
     index: number
     stepIndex: number
     fieldValue: typeGameFieldValue
+    winner: typeGameFieldValue
     onAddStep?: () => void
 }
