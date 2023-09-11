@@ -33,9 +33,10 @@ const GamePage: React.FC = () => {
 
     // On new game step handler
     const onAddStep = (indexOfFieldOfNewStep: number, statusOfNewStep: historyStates) => {
-        const newHistoryStep = createNewStepObject(getLastStepFromHistory(history), history.length - 1, indexOfFieldOfNewStep, statusOfNewStep);
+
+        const newHistoryStep = createNewStepObject(getLastStepFromHistory(history.slice(0, stepIndex + 1)), stepIndex, indexOfFieldOfNewStep, statusOfNewStep);
         setWinner(isWinner(newHistoryStep.board));
-        const newHistory = Array.from(history);
+        const newHistory = Array.from(history.slice(0, stepIndex + 1));
         newHistory.push(newHistoryStep);
         setHistory(newHistory);
         setStepIndex(stepIndex + 1);
@@ -79,7 +80,7 @@ const GamePage: React.FC = () => {
                     <div className="flex justify-center">
                         {/* Current state of game board it is the last element of history */}
                         <GameBoard
-                            lastStep={getLastStepFromHistory(history)}
+                            lastStep={history[stepIndex]}
                             stepIndex={stepIndex}
                             winner={winner}
                             onAddStep={onAddStep}
@@ -89,7 +90,7 @@ const GamePage: React.FC = () => {
                 <div className="flex justify-center">
                     {winner
                         ? <Winner winner={winner} onClearHistory={onClearHistory}/>
-                        : <HistoryBoard history={history} winner={winner} onClearHistory={onClearHistory}/>
+                        : <HistoryBoard history={history} winner={winner} stepIndex={stepIndex} onSetStepIndex={setStepIndex} onClearHistory={onClearHistory}/>
                     }
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {typeHistoryBoardProps} from "../types/types.ts";
 import Draw from "./draw.tsx";
 
-const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner, onClearHistory}) => {
+const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner, stepIndex, onSetStepIndex, onClearHistory}) => {
     return(
         <div className="flex items-center flex-wrap">
             {!winner && history.length !== 10
@@ -28,29 +28,41 @@ const HistoryBoard: React.FC<typeHistoryBoardProps> = ({history, winner, onClear
                                 </div>
                             </div>
                         }
+                        <div className="relative">
+                            <button key={index} className={`relative flex items-center gap-2 border ${currentColor} rounded px-2 py-1 group ${hoverBgColor} hover:text-white transition-all ease-in duration-100`} onClick={() => onSetStepIndex(index)}>
+                                {index === 0 &&
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-gray-600 p-0.5 group-hover:text-white transition-all ease-in duration-100" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16"></path>
+                                    </svg>
+                                }
+                                {index !== 0 && index % 2 === 1 &&
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-red-600 group-hover:text-white transition-all ease-in duration-100" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M18 6l-12 12"></path>
+                                        <path d="M6 6l12 12"></path>
+                                    </svg>
+                                }
+                                {index !== 0 && index % 2 === 0 &&
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 p-0.5 group-hover:text-white transition-all ease-in duration-100" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                                    </svg>
+                                }
+                                <span>{item.stepLabel}</span>
+                            </button>
+                            { stepIndex === index && stepIndex !== history.length - 1 &&
+                                <div className="absolute h-0 bottom-0 right-0 left-0 flex justify-center group-hover:text-gray-400">
+                                    <div className="text-gray-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M18 14l-6 -6l-6 6h12"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            }
+                        </div>
 
-                        <button key={index} className={`flex items-center gap-2 border ${currentColor} rounded px-2 py-1 group ${hoverBgColor} hover:text-white transition-all ease-in duration-300`}>
-                            {index === 0 &&
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-gray-600 p-0.5 group-hover:text-white transition-all ease-in duration-300" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16"></path>
-                                </svg>
-                            }
-                            {index !== 0 && index % 2 === 1 &&
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-red-600 group-hover:text-white transition-all ease-in duration-300" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M18 6l-12 12"></path>
-                                    <path d="M6 6l12 12"></path>
-                                </svg>
-                            }
-                            {index !== 0 && index % 2 === 0 &&
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 p-0.5 group-hover:text-white transition-all ease-in duration-300" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                                </svg>
-                            }
-                            <span>{item.stepLabel}</span>
-                        </button>
 
                     </React.Fragment>)
                 })
