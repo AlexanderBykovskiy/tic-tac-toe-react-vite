@@ -25,6 +25,8 @@ const GamePage: React.FC = () => {
 
     const [history, setHistory] = useState<typeHistory>(initialHistory); // Create blank board and put to history
 
+    const [stepIndex, setStepIndex] = useState(0);
+
     const [winner, setWinner] = useState<typeGameFieldValue>(null); // Set winner store
 
     const [score, setScore] = useState(getSessionScore()); // Get score from Session Storage
@@ -36,12 +38,14 @@ const GamePage: React.FC = () => {
         const newHistory = Array.from(history);
         newHistory.push(newHistoryStep);
         setHistory(newHistory);
+        setStepIndex(stepIndex + 1);
     }
 
     // On clear history
     const onClearHistory = () => {
         setHistory(initialHistory); // Reset history
         setWinner(null); // Reset information about the winner
+        setStepIndex(0); // Reset step index
     }
 
     // On clear score
@@ -76,6 +80,7 @@ const GamePage: React.FC = () => {
                         {/* Current state of game board it is the last element of history */}
                         <GameBoard
                             lastStep={getLastStepFromHistory(history)}
+                            stepIndex={stepIndex}
                             winner={winner}
                             onAddStep={onAddStep}
                         />
