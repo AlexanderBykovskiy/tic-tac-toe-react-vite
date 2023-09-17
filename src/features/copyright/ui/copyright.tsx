@@ -11,7 +11,7 @@ const Copyright = () => {
     const yearData = currentYear === startYear ? startYear : startYear + '-' + currentYear; // Creation of data displayed in the copyright block
 
     return(
-        <div className="text-right text-xs text-gray-300">
+        <div className="text-right text-xs text-gray-400">
             Copyright &copy; {yearData}. <a href={copyrightLink} target="_blank" className="hover:underline">{copyrightName}</a>
         </div>
     )
