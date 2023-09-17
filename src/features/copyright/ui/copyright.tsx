@@ -4,7 +4,7 @@ const Copyright = () => {
 
     const startYear = '2023'; // Year from which the copyright date begins
     const copyrightName = 'Alexander Bykovskiy'; // The name displayed in the copyright block
-    const copyrightLink = 'https://github.com/AlexanderBykovskiy'; // The link to your github
+    const copyrightLink = 'https://github.com/AlexanderBykovskiy'; // The link to your GitHub
 
     const currentYear = getCurrentYear(); // Get current year function
 

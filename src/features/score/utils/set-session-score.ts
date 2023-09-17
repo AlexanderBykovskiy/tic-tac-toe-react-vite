@@ -4,3 +4,5 @@ export const setSessionScore = (scoreObj: typeScoreObj): void => {
     sessionStorage.setItem("xScore", scoreObj.xScore.toString());
     sessionStorage.setItem("oScore", scoreObj.oScore.toString());
 }
+
+// TODO: add tests

@@ -1,5 +1,6 @@
 import {typeGameBoard, typeGameFieldValue} from "../../../shared/types/types.ts";
 
+// Check winner
 export const isWinner = (board: typeGameBoard): null | typeGameFieldValue => {
 
     const winLines = [
