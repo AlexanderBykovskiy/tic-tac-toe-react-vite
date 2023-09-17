@@ -10,7 +10,8 @@ import {isWinner} from "../features/winner/utils/is-winner.ts";
 import Winner from "../features/winner/ui/winner.tsx";
 import {getSessionScore} from "../features/score/utils/get-session-score.ts";
 import {setSessionScore} from "../features/score/utils/set-session-score.ts";
-import {fieldValues, typeGameFieldValue, typeHistory} from "../features/history/types/types.ts";
+import {fieldValues, typeHistory} from "../features/history/types/types.ts";
+import {typeWinnerType} from "../features/winner/types/types.ts";
 
 // Main component of page
 const GamePage: React.FC = () => {
@@ -30,7 +31,7 @@ const GamePage: React.FC = () => {
     const [stepIndex, setStepIndex] = useState(0);
 
     // State for storing information about the winner ('x', 'o' or null if the game is still in progress)
-    const [winner, setWinner] = useState<typeGameFieldValue>(null); // Set winner store
+    const [winner, setWinner] = useState<typeWinnerType | null>(null); // Set winner store
 
     // State to keep a current score for all games played
     const [score, setScore] = useState(getSessionScore()); // Get score from Session Storage
@@ -62,8 +63,8 @@ const GamePage: React.FC = () => {
     // Keep an eye on the winner
     useEffect(() => {
         if (score && winner) {
-            if (winner === fieldValues.x) setScore({...score, xScore: score.xScore + 1});
-            if (winner === fieldValues.o) setScore({...score, oScore: score.oScore + 1});
+            if (winner.value === fieldValues.x) setScore({...score, xScore: score.xScore + 1});
+            if (winner.value === fieldValues.o) setScore({...score, oScore: score.oScore + 1});
         }
     }, [winner]);
 

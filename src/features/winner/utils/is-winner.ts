@@ -1,7 +1,8 @@
-import {typeGameBoard, typeGameFieldValue} from "../../history/types/types.ts";
+import {typeGameBoard} from "../../history/types/types.ts";
+import {typeWinnerType} from "../types/types.ts";
 
 // Check winner
-export const isWinner = (board: typeGameBoard): null | typeGameFieldValue => {
+export const isWinner = (board: typeGameBoard): typeWinnerType | null => {
 
     const winLines = [
         [0, 1, 2],
@@ -21,7 +22,7 @@ export const isWinner = (board: typeGameBoard): null | typeGameFieldValue => {
             board[a] === board[b] &&
             board[a] === board[c]
         ) {
-            return board[a];
+            return {value: board[a], winningCombination: winLines[i]};
         }
     }
 

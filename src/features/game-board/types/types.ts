@@ -1,9 +1,10 @@
-import {typeGameFieldValue, typeHistoryItem} from "../../../shared/types/types.ts";
+import {typeGameFieldValue, typeHistoryItem} from "../../history/types/types.ts";
+import {typeWinnerType} from "../../winner/types/types.ts";
 
 // Types of game board component
 export type typeGameBoardProps = {
     lastStep: typeHistoryItem
-    winner: typeGameFieldValue
+    winner: typeWinnerType | null
     stepIndex: number
     onAddStep: (index: number) => void
 }
@@ -13,6 +14,6 @@ export type typeGameFieldProps = {
     index: number
     stepIndex: number
     fieldValue: typeGameFieldValue
-    winner: typeGameFieldValue
+    winner: typeWinnerType | null
     onAddStep?: () => void
 }
