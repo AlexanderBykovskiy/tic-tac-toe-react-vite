@@ -1,5 +1,6 @@
-import {fieldValues, typeHistoryItem} from "../../../shared/types/types.ts";
+
 import {getStepLabelFromFieldIndex} from "./get-step-label-from-field-index.ts";
+import {fieldValues, typeHistoryItem} from "../types/types.ts";
 
 export const createNewStepObject = (lastStep: typeHistoryItem, indexOfNewStep: number, indexOfFieldOfNewStep: number): typeHistoryItem => {
 

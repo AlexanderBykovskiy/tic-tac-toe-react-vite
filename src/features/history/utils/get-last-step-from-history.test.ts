@@ -1,6 +1,6 @@
 import {getLastStepFromHistory} from "./get-last-step-from-history.ts";
-import {fieldValues, typeHistory, typeHistoryItem} from "../../../shared/types/types.ts";
 import {createNewStepObject} from "./create-new-step-object.ts";
+import {fieldValues, typeHistory, typeHistoryItem} from "../types/types.ts";
 
 test('Testing getLastStepFromHistory function', () => {
     // First game step

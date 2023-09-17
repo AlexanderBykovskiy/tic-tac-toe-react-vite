@@ -1,6 +1,6 @@
 import {createNewStepObject} from "./create-new-step-object.ts";
 import {getStepLabelFromFieldIndex} from "./get-step-label-from-field-index.ts";
-import {fieldValues, typeHistoryItem} from "../../../shared/types/types.ts";
+import {fieldValues, typeHistoryItem} from "../types/types.ts";
 
 test('Testing createNewStepObject function', () => {
 

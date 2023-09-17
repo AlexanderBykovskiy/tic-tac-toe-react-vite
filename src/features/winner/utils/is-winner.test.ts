@@ -1,5 +1,5 @@
 import {isWinner} from "./is-winner.ts";
-import {fieldValues, typeGameBoard} from "../../../shared/types/types.ts";
+import {fieldValues, typeGameBoard} from "../../history/types/types.ts";
 
 test('Testing isWinner function', () => {
     const board1: typeGameBoard = [null, null, null, null, null, null, null, null, null];

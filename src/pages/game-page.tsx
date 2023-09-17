@@ -3,7 +3,6 @@ import Score from "../features/score/ui/score.tsx";
 import React, {useEffect, useState} from "react";
 import {createEmptyBoard} from "../features/history/utils/create-empty-board.ts";
 import GameBoard from "../features/game-board/ui/GameBoard.tsx";
-import {fieldValues, typeGameFieldValue, typeHistory} from "../shared/types/types.ts";
 import HistoryBoard from "../features/history/ui/history-board.tsx";
 import {createNewStepObject} from "../features/history/utils/create-new-step-object.ts";
 import {getLastStepFromHistory} from "../features/history/utils/get-last-step-from-history.ts";
@@ -11,6 +10,7 @@ import {isWinner} from "../features/winner/utils/is-winner.ts";
 import Winner from "../features/winner/ui/winner.tsx";
 import {getSessionScore} from "../features/score/utils/get-session-score.ts";
 import {setSessionScore} from "../features/score/utils/set-session-score.ts";
+import {fieldValues, typeGameFieldValue, typeHistory} from "../features/history/types/types.ts";
 
 // Main component of page
 const GamePage: React.FC = () => {
