@@ -8,3 +8,5 @@ export const getSessionScore = (): typeScoreObj => {
         oScore: Number(currentOScore) ?? 0,
     })
 }
+
+// TODO: add tests

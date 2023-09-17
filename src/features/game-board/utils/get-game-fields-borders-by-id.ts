@@ -1,3 +1,4 @@
+// Style generator for borders of cells of the playing field
 export const getGameFieldsBordersById = (index: number) => {
     const borderStylesArr = [];
     if (index === 0 || index === 3 || index === 6) borderStylesArr.push('border-r');

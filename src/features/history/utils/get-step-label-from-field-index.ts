@@ -1,5 +1,5 @@
 // Convert number index to step label (A3, B1, C2...)
-export const getStepLabelFromStepIndex = (stepIndex: number): string => {
+export const getStepLabelFromFieldIndex = (stepIndex: number): string => {
 
     const stepLabelArr = [];
 
