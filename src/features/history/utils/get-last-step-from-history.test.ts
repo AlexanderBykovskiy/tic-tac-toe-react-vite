@@ -2,7 +2,9 @@ import {getLastStepFromHistory} from "./get-last-step-from-history.ts";
 import {createNewStepObject} from "./create-new-step-object.ts";
 import {fieldValues, typeHistory, typeHistoryItem} from "../types/types.ts";
 
-test('Testing getLastStepFromHistory function', () => {
+
+describe('Utils get-last-step-from-history:', () => {
+
     // First game step
     const emptyBoard = Array(9).fill(null);
     const firstStep: typeHistoryItem = {
@@ -22,10 +24,14 @@ test('Testing getLastStepFromHistory function', () => {
     const stepLabel: string = 'B2';
     history.push(createNewStepObject(firstStep, indexOfNewStep, indexOfFieldOfNewStep));
 
-    expect(getLastStepFromHistory(history)).toEqual({
-        board: lastBoard,
-        stepLabel: stepLabel,
-        stepIndex: indexOfNewStep,
-        clickedFieldIndex: indexOfFieldOfNewStep,
+    test('Testing getLastStepFromHistory function', () => {
+
+        expect(getLastStepFromHistory(history)).toEqual({
+            board: lastBoard,
+            stepLabel: stepLabel,
+            stepIndex: indexOfNewStep,
+            clickedFieldIndex: indexOfFieldOfNewStep,
+        });
     });
+
 });

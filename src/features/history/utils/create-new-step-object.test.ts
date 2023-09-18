@@ -2,7 +2,9 @@ import {createNewStepObject} from "./create-new-step-object.ts";
 import {getStepLabelFromFieldIndex} from "./get-step-label-from-field-index.ts";
 import {fieldValues, typeHistoryItem} from "../types/types.ts";
 
-test('Testing createNewStepObject function', () => {
+
+
+describe('Utils create-new-step-object:', () => {
 
     const emptyBoard = Array(9).fill(null);
     const newBoard = Array.from(emptyBoard);
@@ -17,10 +19,14 @@ test('Testing createNewStepObject function', () => {
     const indexOfNewStep = 0;
     const indexOfFieldOfNewStep = 4;
 
-    expect(createNewStepObject(firstStep, indexOfNewStep, indexOfFieldOfNewStep)).toEqual({
-        board: newBoard,
-        stepLabel: getStepLabelFromFieldIndex(indexOfFieldOfNewStep),
-        stepIndex: indexOfNewStep,
-        clickedFieldIndex: indexOfFieldOfNewStep,
+    test('Testing createNewStepObject function', () => {
+
+        expect(createNewStepObject(firstStep, indexOfNewStep, indexOfFieldOfNewStep)).toEqual({
+            board: newBoard,
+            stepLabel: getStepLabelFromFieldIndex(indexOfFieldOfNewStep),
+            stepIndex: indexOfNewStep,
+            clickedFieldIndex: indexOfFieldOfNewStep,
+        });
     });
+
 });

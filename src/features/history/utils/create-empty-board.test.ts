@@ -1,5 +1,9 @@
 import {createEmptyBoard} from "./create-empty-board.ts";
 
-test('Testing createEmptyBoard function', () => {
-    expect(createEmptyBoard()).toEqual([null, null, null, null, null, null, null, null, null]);
+describe('Utils create-empty-board:', () => {
+
+    test('Testing createEmptyBoard function', () => {
+        expect(createEmptyBoard()).toEqual([null, null, null, null, null, null, null, null, null]);
+    });
+
 });
